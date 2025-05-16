@@ -1,10 +1,11 @@
 
 
+
 export default function Home() {
   return (
     <>
-   <div>Home</div>
-   <div>Home</div>
-   </>
+      <div>HOME</div>
+      <div>HOME</div>
+    </>
   );
 }
