@@ -34,16 +34,16 @@ export default function QuestionPage({questionIndex, nextStep}) {
 
     switch(questionIndex) {
       case 0:
-        colorString = prefix + "-[#90B62A]";  // 綠色
+        colorString = prefix === 'text' ? 'text-[#90B62A]' : 'border-[#90B62A]';  // 綠色
         break;
       case 1:
-        colorString = prefix + "-[#DD3E3E]";  // 紅色
+        colorString = prefix === 'text' ? 'text-[#DD3E3E]' : 'border-[#DD3E3E]';  // 紅色
         break;
       case 2:
-        colorString = prefix + "-[#1098EC]";  // 藍色
+        colorString = prefix === 'text' ? 'text-[#1098EC]' : 'border-[#1098EC]';  // 藍色
         break;
       default:
-        colorString = prefix + "-[#90B62A]";  // 預設綠色
+        colorString = prefix === 'text' ? 'text-[#90B62A]' : 'border-[#90B62A]';  // 預設綠色
     }
 
     return colorString;
@@ -104,7 +104,7 @@ export default function QuestionPage({questionIndex, nextStep}) {
           
 
           <div 
-            className={`text-center font-bold text-3xl ${getMainColor('text')} mb-[60px]`}
+            className={`text-center font-bold text-3xl mb-[60px] ${getMainColor('text')} `}
           > {questionData.questions[questionIndex+1].title} </div>
 
 
@@ -118,7 +118,7 @@ export default function QuestionPage({questionIndex, nextStep}) {
                     <div 
                       className={` bg-[#BEE351] w-full rounded-full text-white 
                         py-[16px] text-sm flex justify-center items-center font-medium 
-                        shadow-[0px_4px_0px_1px_#90B62A] cursor-pointer hover:translate-y-0.5 transition`}
+                        shadow-[0px_4px_0px_1px_#90B62A] cursor-pointer hover:translate-y-0.5 transition z-10`}
 
                       onClick={() => clickAnswer(option)}
                       key={option.title + "green"}
@@ -130,7 +130,7 @@ export default function QuestionPage({questionIndex, nextStep}) {
                     <div 
                       className={` bg-[#DD3E3E] w-full rounded-full text-white 
                         py-[16px] text-sm flex justify-center items-center font-medium 
-                        shadow-[0px_4px_0px_1px_#8D4509] cursor-pointer hover:translate-y-0.5 transition`}
+                        shadow-[0px_4px_0px_1px_#8D4509] cursor-pointer hover:translate-y-0.5 transition z-10`}
 
                       onClick={() => clickAnswer(option)}
                       key={option.title + "red"}
@@ -142,7 +142,7 @@ export default function QuestionPage({questionIndex, nextStep}) {
                     <div 
                       className={` bg-[#89BCFF] w-full rounded-full text-white 
                         py-[16px] text-sm flex justify-center items-center font-medium 
-                        shadow-[0px_4px_0px_1px_#1098EC] cursor-pointer hover:translate-y-0.5 transition`}
+                        shadow-[0px_4px_0px_1px_#1098EC] cursor-pointer hover:translate-y-0.5 transition z-10`}
 
                       onClick={() => clickAnswer(option)}
                       key={option.title + "blue"}
@@ -160,7 +160,7 @@ export default function QuestionPage({questionIndex, nextStep}) {
 
         </div>
 
-        <Image className=' absolute bottom-0 translate-y-1/2 ' src={getCircleImage()} alt='circleImg' />
+        <Image className=' absolute bottom-0 translate-y-1/2 z-0' src={getCircleImage()} alt='circleImg' />
         
       </MobileFrame>
     </>
